@@ -1,0 +1,35 @@
+
+option java_package = "com.github.nizshee";
+
+message Arr {
+    repeated int32 values = 1 [packed=true];
+}
+
+message Start {
+    required int32 clientCount = 1;
+    required int32 arraySize = 2;
+    required int32 delta = 3;
+    required int32 requestCount = 4;
+    required Arch arch = 5;
+    required string server = 6;
+    required int32 port = 7;
+}
+
+message ClientResult {
+    required int32 client = 1;
+}
+
+message ServerResult {
+    required int32 request = 1;
+    required int32 client = 2;
+}
+
+enum Arch {
+    TcpContThread = 1;
+    TcpContPool = 2;
+    TcpContNonblock = 3;
+    TcpNew = 4;
+    UdpThread = 5;
+    UdpPool = 6;
+    TcpAssync = 7;
+}
